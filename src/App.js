@@ -5,14 +5,14 @@ import Navbar from "./Pages/Shared/Navbar/Navbar";
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/about" element={<About></About>}></Route>
       </Routes>
-    </div>
+    </>
   );
 }
 
