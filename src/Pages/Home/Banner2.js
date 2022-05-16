@@ -4,18 +4,18 @@ import PrimaryButton from "../Shared/PrimaryButton";
 
 const Banner2 = () => {
   return (
-    <div class="hero my-28 lg:w-4/6 mx-auto">
-      <div class="hero-content flex-col lg:flex-row">
+    <div className="hero my-28 lg:w-4/6 mx-auto">
+      <div className="hero-content flex-col lg:flex-row">
         <img
           src={treatment}
           alt=""
-          class="max-w-sm rounded-lg mx-auto container shadow-2xl"
+          className="max-w-sm rounded-lg mx-auto container shadow-2xl"
         />
         <div className="pt-10 lg:pl-16">
-          <h1 class="text-5xl text-[#3A4256] font-bold">
+          <h1 className="text-5xl text-[#3A4256] font-bold">
             Exceptional Dental Care, on Your Terms
           </h1>
-          <p class="py-6">
+          <p className="py-6">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout. The point
             of using Lorem Ipsumis that it has a more-or-less normal
