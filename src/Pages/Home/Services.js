@@ -4,9 +4,9 @@ import cavity from "../../assets/images/cavity.png";
 import whitening from "../../assets/images/whitening.png";
 const Services = () => {
   return (
-    <div className="lg:mx-28">
+    <div className="lg:px-28 max-w-screen-2xl mx-auto">
       <div className="text-center mt-28 mb-12 ">
-        <h1 className="font-bold text-xl mb-3 text-accent">OUR SERVICES</h1>
+        <h1 className="font-bold text-xl mb-3 text-primary">OUR SERVICES</h1>
         <h1 className="text-4xl">Services We Provide</h1>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">

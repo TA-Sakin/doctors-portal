@@ -2,7 +2,7 @@ import React from "react";
 import treatment from "../../assets/images/treatment.png";
 import PrimaryButton from "../Shared/PrimaryButton";
 
-const Banner2 = () => {
+const Review = () => {
   return (
     <div className="hero my-28 lg:w-4/6 mx-auto">
       <div className="hero-content flex-col lg:flex-row">
@@ -30,4 +30,4 @@ const Banner2 = () => {
   );
 };
 
-export default Banner2;
+export default Review;

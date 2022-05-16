@@ -10,7 +10,7 @@ const Contact = () => {
       className="flex justify-center items-center mb-24 mt-24 lg:mt-64"
     >
       <div className="text-center py-16">
-        <p className="text-accent font-bold text-xl">Contact Us</p>
+        <p className="text-primary font-bold text-xl">Contact Us</p>
         <h3 className="text-3xl text-white mb-6">Stay connected with us</h3>
         <form action="">
           <input
@@ -28,7 +28,7 @@ const Contact = () => {
             placeholder="Your message"
           ></textarea>
         </form>
-        <button className="btn btn-cyan px-8 font-bold border-0 bg-gradient-to-r to-[#0FCFEC] from-[#19D3AE]">
+        <button className="btn btn-primary px-8 text-white font-bold  bg-gradient-to-r from-secondary to-primary">
           Submit
         </button>
       </div>

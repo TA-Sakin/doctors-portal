@@ -11,39 +11,36 @@ const Footer = () => {
         // backgroundRepeat: "no-repeat",
       }}
     >
-      <footer className="footer p-10 justify-around">
+      <footer className="footer p-10 lg:justify-around max-w-screen-2xl mx-auto">
         <div>
           <span className="footer-title">Services</span>
           <Link to="" className="link link-hover">
-            Branding
+            Emergency Checkup
           </Link>
           <Link to="" className="link link-hover">
-            Design
+            Monthly Checkup
           </Link>
           <Link to="" className="link link-hover">
-            Marketing
+            Weekly Checkup
           </Link>
           <Link to="" className="link link-hover">
-            Advertisement
+            Deep Checkup
           </Link>
         </div>
         <div>
-          <span className="footer-title">Company</span>
+          <span className="footer-title">ORAL HEALTH</span>
           <Link to="" className="link link-hover">
-            About us
+            Flouride Treatment
           </Link>
           <Link to="" className="link link-hover">
-            Contact
+            Cavity Filling
           </Link>
           <Link to="" className="link link-hover">
-            Jobs
-          </Link>
-          <Link to="" className="link link-hover">
-            Press kit
+            Teeth Whitening
           </Link>
         </div>
         <div>
-          <span className="footer-title">Legal</span>
+          <span className="footer-title">ABOUT</span>
           <Link to="" className="link link-hover">
             Terms of use
           </Link>
@@ -55,8 +52,8 @@ const Footer = () => {
           </Link>
         </div>
       </footer>
-      <div className="text-center mt-6 mb-12">
-        <p>Copyright © 2022 - All right reserved by Doctors Portal</p>
+      <div className="text-center mt-6 pb-10">
+        <p>Copyright © 2022 - All right reserved.</p>
       </div>
     </div>
   );

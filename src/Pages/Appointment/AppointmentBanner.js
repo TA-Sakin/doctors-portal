@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { DayPicker } from "react-day-picker";
 import chair from "../../assets/images/chair.png";
 import bg from "../../assets/images/bg.png";
-import PrimaryButton from "../Shared/PrimaryButton";
-const Banner = () => {
+import "react-day-picker/dist/style.css";
+import { format } from "date-fns";
+const AppointmentBanner = ({ date, setDate }) => {
   return (
     <div
       style={{
@@ -18,16 +20,13 @@ const Banner = () => {
             alt=""
             className="max-w-sm lg:max-w-lg container mx-auto rounded-lg shadow-2xl"
           />
-          <div className="lg:mr-28">
-            <h1 className="text-5xl text-accent font-bold mt-6 lg:mt-0">
-              Your New Smile Starts Here
-            </h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <PrimaryButton></PrimaryButton>
+          <div className="lg:pr-36">
+            <DayPicker
+              className="bg-white p-4 shadow-2xl rounded-lg"
+              mode="single"
+              selected={date}
+              onSelect={setDate}
+            />
           </div>
         </div>
       </div>
@@ -35,4 +34,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default AppointmentBanner;
