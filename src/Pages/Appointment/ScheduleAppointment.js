@@ -7,12 +7,12 @@ const ScheduleAppointment = ({ date }) => {
   const [services, setServices] = useState([]);
   const [treatment, setTreatment] = useState(null);
   useEffect(() => {
-    fetch("services.json")
+    fetch("http://localhost:5000/service")
       .then((data) => data.json())
       .then((res) => setServices(res));
   }, []);
   return (
-    <div className="max-w-screen-2xl mx-auto lg:px-28">
+    <div className="max-w-screen-2xl mx-auto mb-24 lg:px-28">
       <h3 className="text-xl text-center text-secondary">
         You have selected {format(date, "PP")}.
       </h3>
