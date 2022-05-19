@@ -41,15 +41,18 @@ const Login = () => {
     signInWithEmailAndPassword(data.email, data.password);
   };
   const passwordReset = async () => {
-    if (!email) {
-      alert("Email is required");
-    }
     await sendPasswordResetEmail(email);
   };
-  if (error || gerror) {
-    signInError = (
-      <p className="text-red-500">{error?.message || gerror?.message}</p>
-    );
+  if (error || gerror || passwordError) {
+    if (passwordError.message.includes("missing-email")) {
+      signInError = <p className="text-red-500 mb-2">Please enter an email.</p>;
+    } else {
+      signInError = (
+        <p className="text-red-500 mb-2">
+          {error?.message || gerror?.message || passwordError?.message}
+        </p>
+      );
+    }
   }
   return (
     <div className="flex h-screen justify-center items-center">
@@ -65,8 +68,6 @@ const Login = () => {
                 type="email"
                 placeholder="Your email"
                 className="input input-bordered w-full max-w-xs"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 {...register("email", {
                   required: {
                     value: true,
