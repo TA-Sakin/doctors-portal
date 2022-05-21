@@ -14,15 +14,15 @@ const ScheduleAppointment = ({ date }) => {
     isLoading,
     refetch,
   } = useQuery(["available", formattedDate], () =>
-    fetch(`http://localhost:5000/available?date=${formattedDate}`).then((res) =>
-      res.json()
-    )
+    fetch(
+      `https://desolate-earth-06461.herokuapp.com/available?date=${formattedDate}`
+    ).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
   }
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/available?date=${formattedDate}`)
+  //   fetch(`https://desolate-earth-06461.herokuapp.com/available?date=${formattedDate}`)
   //     .then((res) => res.json())
   //     .then((data) => setServices(data));
   // }, [formattedDate]);
@@ -37,14 +37,14 @@ const ScheduleAppointment = ({ date }) => {
             key={service._id}
             setTreatment={setTreatment}
             service={service}
-            ></Service>
-            ))}
+          ></Service>
+        ))}
       </div>
       {treatment && (
         <BookingModal
-        date={date}
-        setTreatment={setTreatment}
-        refetch={refetch}
+          date={date}
+          setTreatment={setTreatment}
+          refetch={refetch}
           treatment={treatment}
         ></BookingModal>
       )}

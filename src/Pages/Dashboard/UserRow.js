@@ -7,7 +7,7 @@ const UserRow = ({ user, i, refetch }) => {
   const { email, role } = user;
   const navigate = useNavigate();
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://desolate-earth-06461.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
