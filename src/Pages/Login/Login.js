@@ -9,6 +9,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
@@ -17,6 +18,7 @@ const Login = () => {
   const [sendPasswordResetEmail, sending, passwordError] =
     useSendPasswordResetEmail(auth);
   let signInError;
+  const [token] = useToken(user || guser);
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -27,10 +29,10 @@ const Login = () => {
   } = useForm();
   const [email, setEmail] = useState("");
   useEffect(() => {
-    if (user || guser) {
+    if (token) {
       navigate(from, { replace: true });
     }
-  }, [user, guser, from, navigate]);
+  }, [user, guser, from, navigate, token]);
   const handleGoogleLogin = () => {
     signInWithGoogle();
   };

@@ -10,12 +10,14 @@ import auth from "../../firebase.init";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
+import useToken from "../../hooks/useToken";
 
 const SignUp = () => {
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [token] = useToken(user || guser);
   let signInError;
   const navigate = useNavigate();
   const {
@@ -29,14 +31,13 @@ const SignUp = () => {
   if (loading || gloading || updating) {
     return <Loading></Loading>;
   }
-  if (user) {
-    console.log(user);
+  if (token) {
+    navigate("/appointment");
   }
   const onSubmit = async (data) => {
     console.log(data);
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
-    navigate("/appointment");
   };
   if (error || gerror || updateError) {
     signInError = (
@@ -136,7 +137,7 @@ const SignUp = () => {
                   })}
                 />
                 <label className="label">
-                  {errors.email?.type === "required" && (
+                  {errors.password?.type === "required" && (
                     <span className="label-text-alt text-red-500">
                       {errors.password.message}
                     </span>
