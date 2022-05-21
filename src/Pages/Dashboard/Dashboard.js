@@ -1,8 +1,13 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <div className="drawer drawer-mobile">
       <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
@@ -24,7 +29,7 @@ const Dashboard = () => {
               />
             </svg>
           </label>
-          <h3 className="text-3xl font-bold text-purple-500">Dashboard</h3>
+          <h3 className="text-3xl font-bold mt-5 text-purple-500">Dashboard</h3>
           <Outlet></Outlet>
         </div>
         {/*outlet used for nested route */}
@@ -39,9 +44,11 @@ const Dashboard = () => {
           <li>
             <Link to="/dashboard/review">My Reviews</Link>
           </li>
-          <li>
-            <Link to="/dashboard/users">All Users</Link>
-          </li>
+          {admin && (
+            <li>
+              <Link to="/dashboard/users">All Users</Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>

@@ -46,7 +46,7 @@ const Login = () => {
     await sendPasswordResetEmail(email);
   };
   if (error || gerror || passwordError) {
-    if (passwordError.message.includes("missing-email")) {
+    if (passwordError?.message.includes("missing-email")) {
       signInError = <p className="text-red-500 mb-2">Please enter an email.</p>;
     } else {
       signInError = (

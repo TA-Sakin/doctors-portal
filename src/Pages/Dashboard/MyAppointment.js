@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 
 const MyAppointment = () => {
@@ -32,8 +32,8 @@ const MyAppointment = () => {
   return (
     <div>
       <h3 className="font-bold text-xl my-3 text-primary">My Appointement</h3>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th></th>
