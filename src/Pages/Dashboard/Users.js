@@ -31,7 +31,7 @@ const Users = () => {
   }
   return (
     <div>
-      <h1>All users {users?.length}</h1>
+      <h1 className="font-bold text-xl my-3 text-accent">Currently Users {users?.length} available.</h1>
       <div className="overflow-x-auto">
         <table className="table w-full lg:w-5/6">
           <thead>

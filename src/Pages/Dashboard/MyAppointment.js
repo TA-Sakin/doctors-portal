@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const MyAppointment = () => {
   const [appointments, setAppointments] = useState([]);
@@ -21,9 +22,10 @@ const MyAppointment = () => {
       )
         .then((res) => {
           if (res.status === 401 || res.status === 403) {
-            signOut(auth);
-            localStorage.removeItem("accessToken");
-            navigate("/home");
+            toast.error('Something went wrong!')
+            // signOut(auth);
+            // localStorage.removeItem("accessToken");
+            // navigate("/home");
           }
           return res.json();
         })
@@ -34,7 +36,7 @@ const MyAppointment = () => {
   }, [user, navigate]);
   return (
     <div>
-      <h3 className="font-bold text-xl my-3 text-primary">My Appointement</h3>
+      <h3 className="font-bold text-xl my-3 text-accent">My Appointement</h3>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
