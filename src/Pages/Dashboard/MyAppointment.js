@@ -23,9 +23,9 @@ const MyAppointment = () => {
         .then((res) => {
           if (res.status === 401 || res.status === 403) {
             toast.error('Something went wrong!')
-            // signOut(auth);
-            // localStorage.removeItem("accessToken");
-            // navigate("/home");
+            signOut(auth);
+            localStorage.removeItem("accessToken");
+            navigate("/home");
           }
           return res.json();
         })
@@ -49,7 +49,7 @@ const MyAppointment = () => {
             </tr>
           </thead>
           <tbody>
-            {appointments.map((a, i) => (
+            {appointments?.map((a, i) => (
               <tr>
                 <th>{i + 1}</th>
                 <td>{a.patientName}</td>
