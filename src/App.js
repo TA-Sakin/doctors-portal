@@ -17,6 +17,7 @@ import AddDoctor from "./Pages/Dashboard/AddDoctor";
 import MyHistory from "./Pages/Dashboard/MyHistory";
 import ManageDoctor from "./Pages/Dashboard/ManageDoctor";
 import Payment from "./Pages/Dashboard/Payment";
+import NotFound from "./Pages/NotFound/NotFound";
 function App() {
   return (
     <div>
@@ -79,6 +80,7 @@ function App() {
             }
           ></Route>
         </Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />
     </div>
