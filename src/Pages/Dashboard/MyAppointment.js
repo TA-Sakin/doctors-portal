@@ -4,7 +4,7 @@ import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
-
+import { Link } from "react-router-dom";
 const MyAppointment = () => {
   const [appointments, setAppointments] = useState([]);
   const [user] = useAuthState(auth);
@@ -22,10 +22,10 @@ const MyAppointment = () => {
       )
         .then((res) => {
           if (res.status === 401 || res.status === 403) {
-            toast.error('Something went wrong!')
             signOut(auth);
             localStorage.removeItem("accessToken");
             navigate("/home");
+            // return toast.error("Error authorizing, please login again!");
           }
           return res.json();
         })
@@ -46,6 +46,7 @@ const MyAppointment = () => {
               <th>Date</th>
               <th>Time</th>
               <th>Slot</th>
+              <th>Payment</th>
             </tr>
           </thead>
           <tbody>
@@ -56,6 +57,24 @@ const MyAppointment = () => {
                 <td>{a.date}</td>
                 <td>{a.slot}</td>
                 <td>{a.treatment}</td>
+                <td>
+                  {a.price && !a.paid && (
+                    <Link to={`/dashboard/payment/${a._id}`}>
+                      <button className="btn btn-sm btn-success">Pay</button>
+                    </Link>
+                  )}
+                  {a.price && a.paid && (
+                    <div>
+                      <p className="cursor-auto btn btn-sm btn-warning">Paid</p>
+                      <p>
+                        Transaction id:{" "}
+                        <span className="text-yellow-700">
+                          {a.transactionId}
+                        </span>
+                      </p>
+                    </div>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>

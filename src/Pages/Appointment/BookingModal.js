@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
-  const { _id, name, slots } = treatment;
+  const { _id, name, slots, price } = treatment;
   const [user, loading, error] = useAuthState(auth);
   const formattedDate = format(date, "PP");
   const handleBooking = (e) => {
@@ -17,11 +17,12 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
       treatment: name,
       date: formattedDate,
       slot,
+      price,
       patient: user.email,
       patientName: user.displayName,
       phone: e.target.phone.value,
     };
-    fetch("http://localhost:5000/booking", {
+    fetch("https://desolate-earth-06461.herokuapp.com/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",
