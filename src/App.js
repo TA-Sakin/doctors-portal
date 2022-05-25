@@ -19,7 +19,7 @@ import ManageDoctor from "./Pages/Dashboard/ManageDoctor";
 import Payment from "./Pages/Dashboard/Payment";
 function App() {
   return (
-    <div className="">
+    <div>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>

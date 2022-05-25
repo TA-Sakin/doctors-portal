@@ -34,9 +34,9 @@ const Navbar = () => {
       </li>
       <li>
         {user ? (
-          <button className="btn btn-ghost -case text-base" onClick={logout}>
+          <Link to="" onClick={logout}>
             Logout
-          </button>
+          </Link>
         ) : (
           <Link to="/login">Login</Link>
         )}
@@ -44,7 +44,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 lg:justify-around mx-auto max-w-screen-2xl">
+    <div className="navbar fixed z-50 bg-base-100 lg:justify-around lg:px-24">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
